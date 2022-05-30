@@ -1,17 +1,16 @@
 <%= form_with(model: @product, data: {turbo: false}) do |f|  %>
-<div>
-  <fieldset class="mb-2">
+  <fieldset class="mb-3">
     <%= f.label :name %>
     <%= f.text_field :name %>
   </fieldset>
 </div>
-<div>
+<div class="mb-3">
   <fieldset class="mb-2">
     <%= f.label :description %>
     <%= f.text_area :description %>
   </fieldset>
 </div>
-<div>
+<div class="mb-3">
   <fieldset class="mb-2">
     <%= f.label :price %>
     <%= f.number_field :price %>

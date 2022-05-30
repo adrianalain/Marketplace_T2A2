@@ -1,10 +1,11 @@
 class ProductsController < ApplicationController
+    before_action :authenticate_user!, except: [:index]
+
     def index
         @products = Product.all
     end
 
     def show
-        @product = Product.find(params[:id])
     end
 
     def new
@@ -12,7 +13,7 @@ class ProductsController < ApplicationController
     end
 
     def create
-        @product = Product.new(product_params)
+        @product = current_user.product.new(product_params)
          if @product.save
             redirect_to products_path
          else
@@ -40,7 +41,8 @@ class ProductsController < ApplicationController
     end
 
 private
+
     def product_params
-        params.require(:product).permit(:name, :description, :price)
+        params.require(:product).permit(:name, :description, :price, :user_id)
     end
 end

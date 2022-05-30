@@ -20,15 +20,36 @@
             <li class="nav-item">
               <%= link_to 'Home', root_path, class: 'nav-link' %>
             </li>
+            <% if user_signed_in? %>
             <li class="nav-item">
               <%= link_to "Sell item", products_new_path, class: "btn btn-outline-info" %>
             </li>
           </ul>
         </div>
+        <li class="ml-auto btn-toolbar p-3 text-primary">
+          Welcome, <%= current_user.email %>
+        </li>
+        <li class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-primary me-md-2" %>
+        </li>
+        <% else %>
+        <li class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <%= button_to "Sign Up", new_user_registration_path, method: :get, class: "btn btn-primary me-md-2" %>
+        </li>
+        <li class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <%= button_to "Login", new_user_session_path, method: :get, class: "btn btn-primary me-md-2" %>
+        </li>
+        <% end %>
       </div>
     </nav>
     <main class="p-3">
-      <%= yield %>
+  <% if notice %>
+    <p class="alert alert-info notice" role="alert"><%= notice.html_safe %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger" role="alert"><%= alert.html_safe %></p>
+  <% end %>
+  <%= yield %>
     </main>
   </body>
 </html>
