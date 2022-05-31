@@ -1,11 +1,10 @@
 <h1>Product List</h1>
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col">
+<div class="row", height: 50px>
   <% @products.each do |product| %>
-    <div class="card h-100">
-      <img src="" class="card-img-top" alt="">
+    <div class="col-md-4">
+    <div class="card" style="width: 18rem;">
+      <h6 class="card-img-top"><%= image_tag product.image, transformation: ["media_lib_thumb"], :width=>150, :crop=>"scale", cloud_name: 'nakoawolf' %></h6>
       <div class="card-body">
-        <h6 class="card-title"><%= image_tag product.image, transformation: ["media_lib_thumb"], :width=>150, :crop=>"scale", cloud_name: 'nakoawolf' %></h6>
         <h5 class="card-title"><%= product.name %></h5>
         <p class="card-text"><%= product.description %></p>
         <h6 class="card-title">$<%= product.price.to_f %></h6>
@@ -14,8 +13,8 @@
           <% else %>
           <%= button_to "Buy", checkout_index_path, params: {id: product.id}, remote: true, class: "btn btn-outline-success" %>
         <% end %>
-      </div>  
+      </div>
     </div>
-  </div>
+    </div>
+    <% end %>
 </div>
-<% end %>
