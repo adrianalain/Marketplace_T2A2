@@ -46,6 +46,9 @@ gem "bootsnap", require: false
 gem 'bootstrap', '~> 5.1.3'
 gem 'simple_form'
 gem 'devise'
+gem "cloudinary", "~> 1.23"
+gem "activestorage-cloudinary-service"
+gem "dotenv-rails", "~> 2.7"
 
 # Use Sass to process CSS
 # gem "sassc-rails"
@@ -75,3 +78,7 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+
+
+

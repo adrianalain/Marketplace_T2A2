@@ -13,7 +13,13 @@
 <div class="mb-3">
   <fieldset class="mb-2">
     <%= f.label :price %>
-    <%= f.number_field :price %>
+    $<%= f.number_field :price %>
+  </fieldset>
+</div>
+<div class="mb-3">
+  <fieldset class="mb-2">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
   </fieldset>
 </div>
 <div>

@@ -1,39 +1,48 @@
 class ProductsController < ApplicationController
     before_action :authenticate_user!, except: [:index]
-
+    # shows all product in the homepage
     def index
         @products = Product.all
     end
 
     def show
+        @product = Product.find(params[:id])
     end
 
     def new
         @product = Product.new
     end
 
+    #creating a product in the db and redirect to the homepage
     def create
-        @product = current_user.product.new(product_params)
-         if @product.save
+        begin
+            @product = Product.new(product_params)
+            @product.save!
             redirect_to products_path
-         else
-            render :new
+        rescue
+            flash[:alert] = @product.errors.full_messages.join('<br>')
+            render 'new'
         end
     end
 
+    #edit product if the user created it
     def edit
         @product = Product.find(params[:id])
     end
 
+    #update product if the user created it
     def update
+        begin
         @product = Product.find(params[:id])
-        if @product.update(product_params)
+        @product.update!(product_params)
             redirect_to products_path
-        else
-            render :edit
+        rescue
+            flash[:alert] = @product.errors.full_messages.join('<br>')
+            render 'edit'
         end
     end
 
+    #delete product if the user created it
     def destroy
         @product = Product.find(params[:id])
         @product.destroy
@@ -43,6 +52,6 @@ class ProductsController < ApplicationController
 private
 
     def product_params
-        params.require(:product).permit(:name, :description, :price, :user_id)
+        params.require(:product).permit(:name, :description, :price, :image, :user_id)
     end
 end
