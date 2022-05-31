@@ -49,6 +49,7 @@ gem 'devise'
 gem "cloudinary", "~> 1.23"
 gem "activestorage-cloudinary-service"
 gem "dotenv-rails", "~> 2.7"
+gem 'stripe'
 
 # Use Sass to process CSS
 # gem "sassc-rails"

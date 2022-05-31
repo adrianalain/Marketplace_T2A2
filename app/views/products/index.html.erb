@@ -8,11 +8,11 @@
         <h6 class="card-title"><%= image_tag product.image, transformation: ["media_lib_thumb"], :width=>150, :crop=>"scale", cloud_name: 'nakoawolf' %></h6>
         <h5 class="card-title"><%= product.name %></h5>
         <p class="card-text"><%= product.description %></p>
-        <h6 class="card-title">$<%= product.price %></h6>
+        <h6 class="card-title">$<%= product.price.to_f %></h6>
         <% if current_user && current_user.id == product.user_id  %>
         <%= button_to "Edit your Product", product, method: :get, class: "btn btn-outline-warning" %>
           <% else %>
-          <%= button_to "Buy", class: "btn btn-outline-success" %>
+          <%= button_to "Buy", checkout_index_path, params: {id: product.id}, remote: true, class: "btn btn-outline-success" %>
         <% end %>
       </div>  
     </div>
