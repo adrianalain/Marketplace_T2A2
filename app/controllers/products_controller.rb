@@ -18,13 +18,14 @@ class ProductsController < ApplicationController
     def create
         begin
             @product = current_user.product.new(product_params)
-            if @product.save!
+             @product.save!
             redirect_to products_path
         rescue
             flash.now[:alert] = @product.errors.full_messages.join('<br>')
             render 'new'
         end
     end
+
 
     #edit product if the user created it
     def edit
@@ -38,7 +39,7 @@ class ProductsController < ApplicationController
         @product.update!(product_params)
             redirect_to products_path
         rescue
-            flash[:alert] = @product.errors.full_messages.join('<br>')
+            flash.now[:alert] = @product.errors.full_messages.join('<br>')
             render 'edit'
         end
     end
