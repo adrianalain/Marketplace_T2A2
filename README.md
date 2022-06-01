@@ -4,7 +4,8 @@ My application is not fully functioning in Heroku because of an error in active 
 To be able to access the fully functional applciaiton of my app here's the link and try to clone my repo.
 
 ### Installation
-Clone the repository in your local computer. Here's how you can clone it. [Clone Repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
+Clone the repository in your local computer. Here's how you can clone it. [Clone Repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository). After cloning it then:
+
 Run bundle install
 Run rails db:migrate
 
