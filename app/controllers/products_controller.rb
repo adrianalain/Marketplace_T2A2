@@ -31,15 +31,6 @@ class ProductsController < ApplicationController
             render 'new'
         end
     end
-#   def create
-#       @book = Book.create(book_params)
-#       if @book.valid?
-#         redirect_to @book
-#       else
-#         flash.now[:alert] = @book.errors.full_messages.join('<br>')
-#         render 'new'
-#       end
-#   end
 
     #edit product if the user created it
     def edit
