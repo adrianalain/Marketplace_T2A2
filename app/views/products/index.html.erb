@@ -1,9 +1,9 @@
 <h1>Product List</h1>
-<div class="row", height: 50px>
+<div class="row">
   <% @products.each do |product| %>
-    <div class="col-md-4">
-    <div class="card" style="width: 18rem;">
-      <h6 class="card-img-top"><%= image_tag product.image, transformation: ["media_lib_thumb"], :width=>150, :crop=>"scale", cloud_name: 'nakoawolf' %></h6>
+    <div class="col-sm-5">
+    <div class="card" style="width: 20rem;">
+      <h6 class="card-image-top"><%= image_tag product.image, transformation: ["media_lib_thumb"], :width=>150, :crop=>"scale", cloud_name: 'nakoawolf' %></h6>
       <div class="card-body">
         <h5 class="card-title"><%= product.name %></h5>
         <p class="card-text"><%= product.description %></p>
