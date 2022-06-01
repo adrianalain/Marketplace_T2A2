@@ -17,11 +17,12 @@ class ProductsController < ApplicationController
     
     #creating a product in the db and redirect to the homepage
     def create 
+        begin
             @product = Product.new(product_params)
             @product.user_id = current_user.id
-             if @product.save
+             @product.save!
                 redirect_to products_path
-            else
+             rescue
             flash.now[:alert] = @product.errors.full_messages.join('<br>')
             render 'new'
         end
