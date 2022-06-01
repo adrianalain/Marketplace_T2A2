@@ -3,8 +3,8 @@
   <% @products.each do |product| %>
     <div class="col-sm-5">
     <div class="card" style="width: 20rem;">
-      <h6 class="card-image-top"><%= image_tag product.image, transformation: ["media_lib_thumb"], :width=>150, :crop=>"scale", cloud_name: 'nakoawolf' %></h6>
-      <div class="card-body">
+      <h6 class="card-image-top"><%= cl_image_tag(product.image, transformation: ["media_lib_thumb"], :width=>150, :crop=>"scale", cloud_name: ENV['CLOUDINARY_CLOUD_NAME']) %></h6>
+      <div class="card-body"
         <h5 class="card-title"><%= product.name %></h5>
         <p class="card-text"><%= product.description %></p>
         <h6 class="card-title">$<%= product.price.to_f %></h6>
