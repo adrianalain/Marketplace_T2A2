@@ -16,17 +16,30 @@ class ProductsController < ApplicationController
     
     
     #creating a product in the db and redirect to the homepage
-    def create
-        begin
+    def create 
             @product = current_user.product.new(product_params)
-             @product.save!
-            redirect_to products_path
-        rescue
+             if @product.valid?
+            begin
+                @product.save!
+                redirect_to products_path
+            rescue => exception
+            flash.now[:alert] = @product.errors.full_messages.join('<br>') 
+            render 'new'
+            end
+            else
             flash.now[:alert] = @product.errors.full_messages.join('<br>')
             render 'new'
         end
     end
-
+#   def create
+#       @book = Book.create(book_params)
+#       if @book.valid?
+#         redirect_to @book
+#       else
+#         flash.now[:alert] = @book.errors.full_messages.join('<br>')
+#         render 'new'
+#       end
+#   end
 
     #edit product if the user created it
     def edit
