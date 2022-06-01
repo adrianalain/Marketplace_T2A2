@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
              @product.save!
                 redirect_to products_path
              rescue
-            flash.now[:alert] = @product.errors.full_messages.join('<br>')
+            flash[:alert] = @product.errors.full_messages.join('<br>')
             render 'new'
         end
     end
@@ -40,7 +40,7 @@ class ProductsController < ApplicationController
         @product.update!(product_params)
             redirect_to products_path
         rescue
-            flash.now[:alert] = @product.errors.full_messages.join('<br>')
+            flash[:alert] = @product.errors.full_messages.join('<br>')
             render 'edit'
         end
     end
