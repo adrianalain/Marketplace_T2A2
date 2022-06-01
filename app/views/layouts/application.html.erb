@@ -44,10 +44,10 @@
       </div>
     </nav>
     <main class="p-3">
-  <% if flash[:notice] %>
+  <% if notice %>
     <p class="alert alert-info notice" role="alert"><%= notice.html_safe %></p>
   <% end %>
-  <% if flash[:alert] %>
+  <% if alert %>
     <p class="alert alert-danger" role="alert"><%= alert.html_safe %></p>
   <% end %>
   <%= yield %>
