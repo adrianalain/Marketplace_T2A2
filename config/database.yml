@@ -85,6 +85,7 @@ test:
 #
 production:
   <<: *default
+  adapter: postgresql
   database: marketplace_production
   username: marketplace
   password: <%= ENV["MARKETPLACE_DATABASE_PASSWORD"] %>
