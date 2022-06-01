@@ -21,6 +21,7 @@ There are less to none marketplace that is build for collectors so I'm trying to
 R9. A link (URL) to your deployed app (i.e. website)
 
 [Marketplace App](https://polar-crag-67168.herokuapp.com/)
+[Marketplace App](https://app-marketplace-demo.herokuapp.com/)
 
 Here's a test card number for buy option:
 Number | CVC | Date
