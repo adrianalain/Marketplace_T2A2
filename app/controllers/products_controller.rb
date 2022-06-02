@@ -10,19 +10,20 @@ class ProductsController < ApplicationController
     end
 
     def new
-        @product = current_user.product.new
+        @product = Product.new
     end
 
+    
+    
     #creating a product in the db and redirect to the homepage
-    def create
-        begin
-            @product = current_user.product.new(product_params)
-            @product.save!
-            redirect_to products_path
-        rescue
-            flash[:alert] = @product.errors.full_messages.join('<br>')
+    def create 
+            @product = Product.new(product_params)
+             if @product.save
+                redirect_to products_path
+             else
+            flash.now[:alert] = @product.errors.full_messages.join('<br>')
             render 'new'
-        end
+             end
     end
 
     #edit product if the user created it
@@ -37,8 +38,8 @@ class ProductsController < ApplicationController
         @product.update!(product_params)
             redirect_to products_path
         rescue
-            flash[:alert] = @product.errors.full_messages.join('<br>')
-            render 'edit'
+            flash.now[:alert] = @product.errors.full_messages.join('<br>')
+            render action: :edit
         end
     end
 
