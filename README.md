@@ -1,14 +1,5 @@
 # Marketplace Application
 
-My application is not fully functioning in Heroku because of an error in active blob. 
-To be able to access the fully functional applicaiton of my app here's the link and try to clone my repo.
-
-### Installation
-Clone the repository in your local computer. Here's how you can clone it. [Clone Repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository). After cloning it then:
-
-Run bundle install
-
-Run rails db:migrate
 
 ### R7. Identification of the problem you are trying to solve by building this particular marketplace app.
 
@@ -20,7 +11,6 @@ There are less to none marketplace that is build for collectors so I'm trying to
 
 R9. A link (URL) to your deployed app (i.e. website)
 
-[Marketplace App](https://polar-crag-67168.herokuapp.com/)
 [Marketplace App](https://app-marketplace-demo.herokuapp.com/)
 
 Here's a test card number for buy option:
